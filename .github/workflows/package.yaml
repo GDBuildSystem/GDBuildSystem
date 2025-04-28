@@ -76,8 +76,8 @@ jobs:
             retention-days: 1
     
       - name: Upload asset with gh CLI
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        gh release upload ${{ fromJson(steps.get_release.outputs.result).tag_name }} gdbuildsystem-$VERSION.zip --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ fromJson(steps.get_release.outputs.result).tag_name }} gdbuildsystem-$VERSION.zip --clobber
           
