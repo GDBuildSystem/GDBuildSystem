@@ -7,43 +7,43 @@ on:
     workflow_dispatch:
 
 jobs:
-    semantic-versioning:
-        runs-on: ubuntu-latest
+  semantic-versioning:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout repository
-                uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Set up Node.js
-                uses: actions/setup-node@v3
-                with:
-                    node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-            - name: Install dependencies
-                run: npm install
+      - name: Install dependencies
+        run: npm install
 
-            - name: Run semantic-release
-                env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                run: npx semantic-release
-    package:
-        runs-on: ubuntu-latest
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+  package:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout repository
-                uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Create addons folder and move GDBuildSystem
-                run: |
-                    mkdir addons
-                    mv gdbuildsystem addons/
+      - name: Create addons folder and move GDBuildSystem
+        run: |
+            mkdir addons
+            mv gdbuildsystem addons/
 
-            - name: Zip the addons folder
-                run: |
-                    zip -r addons.zip addons
+      - name: Zip the addons folder
+        run: |
+            zip -r addons.zip addons
 
-            - name: Upload the zip file as an artifact
-                uses: actions/upload-artifact@v3
-                with:
-                    name: addons-zip
-                    path: gdbuildsystem-$VERSION.zip
+      - name: Upload the zip file as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+            name: addons-zip
+            path: gdbuildsystem-$VERSION.zip
