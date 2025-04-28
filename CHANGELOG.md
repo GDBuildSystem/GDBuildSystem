@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.0...v1.0.1) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ci:** action templates and uploading process. ([c94fcb5](https://github.com/GDBuildSystem/GDBuildSystem/commit/c94fcb54ae0f96d91d22971868d8f258e6439ce0))
+* **ci:** yaml formatting. ([bdaa66b](https://github.com/GDBuildSystem/GDBuildSystem/commit/bdaa66bf5b8eaecc41613e5d0225e54915425ac6))
+
 # [1.0.0](https://github.com/GDBuildSystem/GDBuildSystem/compare/...v1.0.0) (2025-04-28)
 
 
