@@ -5,10 +5,12 @@ tagFormat: 'v${version}'
 preset: 'angular'
 
 branches:
-  main:
-    name: main
+  - name: main
     channel: 'latest'
     prerelease: false
+  - name: dev
+    channel: 'dev'
+    prerelease: true
 
 verifyConditions:
   - '@semantic-release/changelog'
