@@ -1,0 +1,37 @@
+# This file is used by semantic-release to automate the release process.
+# It includes the configuration for the release process, including the plugins to be used and the conditions for verifying the release.
+
+tagFormat: 'v${version}'
+preset: 'angular'
+
+branches:
+  main:
+    name: main
+    channel: 'latest'
+    prerelease: false
+
+verifyConditions:
+  - '@semantic-release/changelog'
+  - '@semantic-release/git'
+  - '@semantic-release/github'
+
+analyzeCommits:
+  - path: '@semantic-release/commit-analyzer'
+
+generateNotes:
+  - path: '@semantic-release/release-notes-generator'
+    writerOpts:
+      groupBy: 'type'
+      commitGroupsSort: 'title'
+      commitsSort: 'header'
+    linkCompare: true
+    linkReferences: true
+
+prepare:
+  - path: '@semantic-release/changelog'
+  - path: '@semantic-release/git'
+    message: 'RELEASE: ${nextRelease.version}'
+    assets: ['CHANGELOG.md']
+
+publish:
+  - path: '@semantic-release/github'
