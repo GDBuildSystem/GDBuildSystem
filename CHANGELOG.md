@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.4...v1.0.5) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ci:** JSON communication ([0cc62f6](https://github.com/GDBuildSystem/GDBuildSystem/commit/0cc62f69759c67079d3e3a419acb0cb42fb884c7))
+
 ## [1.0.4](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.3...v1.0.4) (2025-04-28)
 
 
