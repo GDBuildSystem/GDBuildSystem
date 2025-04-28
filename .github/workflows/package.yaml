@@ -82,4 +82,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release upload ${{ fromJson(steps.get_release.outputs.result).tag_name }} gdbuildsystem-$VERSION.zip --clobber
-          
+      
+      - name: Upload to Godot Asset Library
+        env:
+          GODOT_LIBRARY_USERNAME: ${{ secrets.GODOT_LIBRARY_USERNAME }}
+          GODOT_LIBRARY_PASSWORD: ${{ secrets.GODOT_LIBRARY_PASSWORD }}
+        run: |
+          export VERSION=$(echo "${{ fromJson(steps.get_release.outputs.result).tag_name }}" | sed 's/v//')
+          npm i axios
+          node .github/scripts/godot-library-post.js
