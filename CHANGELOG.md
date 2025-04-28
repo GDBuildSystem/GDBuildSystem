@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.7...v1.0.8) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ci:** Version Env Variable. ([f660fe6](https://github.com/GDBuildSystem/GDBuildSystem/commit/f660fe6cd4d6fd3767e21ea3b28041ec8cbed3b4))
+
 ## [1.0.7](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.6...v1.0.7) (2025-04-28)
 
 
