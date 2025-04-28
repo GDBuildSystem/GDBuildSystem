@@ -69,16 +69,15 @@ jobs:
             zip -r gdbuildsystem-$VERSION.zip addons
 
       - name: Upload the zip file as an artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
             name: addons-zip
             path: gdbuildsystem-$VERSION.zip
             retention-days: 1
     
-      - name: Upload asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ fromJson(steps.get_release.outputs.result).upload_url }}
-          asset_path: ./gdbuildsystem-$VERSION.zip
-          asset_name: file.zip
-          asset_content_type: application/zip
+      - name: Upload asset with gh CLI
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh release upload ${{ fromJson(steps.get_release.outputs.result).tag_name }} gdbuildsystem-$VERSION.zip --clobber
+          
