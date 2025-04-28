@@ -1,3 +1,15 @@
+# [1.1.0-dev.1](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.8...v1.1.0-dev.1) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ci:** branches. ([3ff4ee2](https://github.com/GDBuildSystem/GDBuildSystem/commit/3ff4ee23ade049ca29546f3277496366f2095b5f))
+
+
+### Features
+
+* **ci:** godot library asset auto upload. ([6f84618](https://github.com/GDBuildSystem/GDBuildSystem/commit/6f84618df473feed3eb4e27c4b7ec23d79d903c5))
+
 ## [1.0.8](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.7...v1.0.8) (2025-04-28)
 
 
