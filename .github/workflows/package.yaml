@@ -55,7 +55,7 @@ jobs:
               throw new Error('No releases found');
             }
             console.log('Latest release:', releases.data[0]);
-            return releases.data[0]; // latest release
+            return JSON.stringify(releases.data[0]); // Latest release
           result-encoding: string
 
       - name: Create addons folder and move GDBuildSystem
