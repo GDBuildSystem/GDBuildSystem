@@ -1,8 +1,8 @@
-<center>
+<div align="center">
     <picture>
-    <img alt="Godot Build Systems" height=400 src="godot-build-systems-logo.png">
+        <img alt="Godot Build Systems" height="400" src="godot-build-systems-logo.png">
     </picture>
-</center>
+</div>
 
 ## Purpose
 This Godot Add-on makes exporting your game easier by providing necessary features into your export pipeline.
