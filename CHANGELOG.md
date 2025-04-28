@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.5...v1.0.6) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ci:** pull tag_name out of the json. ([196bcbc](https://github.com/GDBuildSystem/GDBuildSystem/commit/196bcbc2affb23bd8b2728a42c6678c5f1944fa9))
+
 ## [1.0.5](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.4...v1.0.5) (2025-04-28)
 
 
