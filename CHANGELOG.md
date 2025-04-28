@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.6...v1.0.7) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ci:** export version. ([6d7b9de](https://github.com/GDBuildSystem/GDBuildSystem/commit/6d7b9de2635437e485d19642c0fceec99dcc92de))
+
 ## [1.0.6](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.5...v1.0.6) (2025-04-28)
 
 
