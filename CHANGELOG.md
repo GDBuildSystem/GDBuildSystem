@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.2...v1.0.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* **ci:** print latest release. ([9c42cf4](https://github.com/GDBuildSystem/GDBuildSystem/commit/9c42cf4caaed85797accc6975d42e9fd2af57604))
+
 ## [1.0.2](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.1...v1.0.2) (2025-04-28)
 
 
