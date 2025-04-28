@@ -54,7 +54,7 @@ jobs:
             if (releases.data.length === 0) {
               throw new Error('No releases found');
             }
-            print('Latest release:', releases.data[0]);
+            console.log('Latest release:', releases.data[0]);
             return releases.data[0]; // latest release
           result-encoding: string
 
