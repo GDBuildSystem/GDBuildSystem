@@ -60,7 +60,8 @@ jobs:
 
       - name: Create addons folder and move GDBuildSystem
         run: |
-            export VERSION=$(echo "${{ fromJson(steps.get_release.outputs.result).tag_name }}" | sed 's/v//' | sed 's/./_/g')
+            export VERSION=$(echo "${{ fromJson(steps.get_release.outputs.result).tag_name }}" | sed 's/v//' | tr '.' '_' )
+            echo "VERSION=$VERSION" >> $GITHUB_ENV
             echo "VERSION: $VERSION"
             mkdir addons
             mv gdbuildsystem addons/
