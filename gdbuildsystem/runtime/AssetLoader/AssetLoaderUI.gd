@@ -12,6 +12,8 @@ func _ready() -> void:
 func _exit_tree() -> void:
     AssetLoader.on_loaded_asset.disconnect(_on_asset_loader_loaded_asset)
     AssetLoader.on_progress_update.disconnect(_on_asset_loader_progress_update)
+    AssetLoader.on_fully_loaded.disconnect(_on_asset_loader_fully_loaded)
+    AssetLoader.on_started.disconnect(_on_asset_loader_started)
 
 func _on_asset_loader_progress_update(percentage: float, _current_index: int, _max_index: int) -> void:
     progress_bar.value = percentage

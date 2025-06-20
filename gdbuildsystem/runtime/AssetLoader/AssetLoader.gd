@@ -242,9 +242,9 @@ func load_path(expected_string: String, callable: Callable = noop) -> void:
     _update_progress()
 
 func _update_progress() -> void:
-    var current_progress: float = 0
+    var total_progress: float = 0
     for item: ThreadedAsset in _threaded_items.values():
-        current_progress = item.progress
+        total_progress += item.progress
     var max_size: int = _max_items.size()
-    var percentage: float = current_progress / max_size
-    on_progress_update.emit(percentage, current_progress, max_size)
+    var percentage: float = total_progress / max_size
+    on_progress_update.emit(percentage, total_progress, max_size)
