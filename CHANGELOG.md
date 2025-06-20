@@ -1,3 +1,10 @@
+# [1.1.0-dev.9](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.8...v1.1.0-dev.9) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** authenticate the request. ([ac84387](https://github.com/GDBuildSystem/GDBuildSystem/commit/ac843874d6519c09535998db325228c3327f9bef))
+
 # [1.1.0-dev.8](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.7...v1.1.0-dev.8) (2025-06-20)
 
 
