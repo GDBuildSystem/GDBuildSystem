@@ -67,7 +67,7 @@ jobs:
 
       - name: Create addons folder and move GDBuildSystem
         run: |
-            export VERSION=$(echo "${{ needs.semantic-versioning.outputs.version }}" | sed 's/v//' | tr '.' '_' )
+            export VERSION=$(echo "${{ needs.semantic-versioning.outputs.version }}" | tr '.' '_' )
             echo "VERSION=$VERSION" >> $GITHUB_ENV
             echo "VERSION: $VERSION"
             # Update the version in plugin.cfg
@@ -102,6 +102,6 @@ jobs:
           GODOT_LIBRARY_PASSWORD: ${{ secrets.GODOT_LIBRARY_PASSWORD }}
           GODOT_LIBRARY_ASSET_NAME: ${{ vars.GODOT_LIBRARY_ASSET_NAME }}
         run: |
-          export VERSION=$(echo "${{ needs.semantic-versioning.outputs.version }}" | sed 's/v//')
+          export VERSION=$(echo "${{ needs.semantic-versioning.outputs.version }}")
           npm i axios
           node .github/scripts/godot-library-post.js
