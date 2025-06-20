@@ -50,7 +50,7 @@ async function main()
                 'Authorization': `Bearer ${token}`
             }
         });
-        const assets = response.data.result;
+        const assets = response.events || response.results || [];
         console.log(`Received Page ${page}, data: ${JSON.stringify(assets, null, 2)}`);
         if (!Array.isArray(assets) || assets.length === 0)
         {
