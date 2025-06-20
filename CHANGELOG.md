@@ -1,3 +1,10 @@
+# [1.1.0-dev.5](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.4...v1.1.0-dev.5) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** missing environment variable from the github variables. ([413bd86](https://github.com/GDBuildSystem/GDBuildSystem/commit/413bd866ef3c59a0f5826b29d321f03597b4329e))
+
 # [1.1.0-dev.4](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.3...v1.1.0-dev.4) (2025-06-20)
 
 
