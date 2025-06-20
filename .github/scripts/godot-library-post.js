@@ -36,7 +36,7 @@ async function main()
     while (asset == null && page <= 100)
     {
         console.log(`Fetching page ${page}...`);
-        const response = await axios.get(`${API_URL}/assets`, {
+        const response = await axios.get(`${API_URL}/asset?user=${username}`, {
             params: {
                 page: page,
                 max_results: 100
@@ -79,7 +79,7 @@ async function main()
         "version_string": process.env.VERSION,
     }
     console.log("Patching asset...\n", sendBlob);
-    const editResponse = await axios.post(`${API_URL}/assets/edit/${asset.id}`, sendBlob);
+    const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.asset_id}`, sendBlob);
     if (editResponse.status !== 200)
     {
         throw new Error(`Failed to edit asset: ${editResponse.reason}`);

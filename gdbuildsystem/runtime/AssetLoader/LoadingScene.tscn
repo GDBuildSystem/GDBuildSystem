@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo42vcv7acyw5"]
+
+[ext_resource type="Script" uid="uid://cgv4q2k44jy60" path="res://Common/Scripts/AssetLoader/AssetLoaderUI.gd" id="2_ext55"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ext55"]
+bg_color = Color(0.207512, 0.207512, 0.207512, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="." node_paths=PackedStringArray("progress_bar", "loading_text")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ext55")
+script = ExtResource("2_ext55")
+progress_bar = NodePath("VBoxContainer/ProgressBar")
+loading_text = NodePath("VBoxContainer/Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -307.0
+offset_top = -130.0
+offset_right = 307.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer"]
+layout_mode = 2
