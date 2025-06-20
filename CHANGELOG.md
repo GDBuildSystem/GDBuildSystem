@@ -1,3 +1,10 @@
+# [1.1.0-dev.4](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.3...v1.1.0-dev.4) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** not properly exiting when failure. ([062297e](https://github.com/GDBuildSystem/GDBuildSystem/commit/062297e75e00fb0d7e2e665de1bb1dc498db7070))
+
 # [1.1.0-dev.3](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2025-06-20)
 
 
