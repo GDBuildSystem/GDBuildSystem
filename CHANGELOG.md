@@ -1,3 +1,20 @@
+# [1.1.0-dev.2](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2025-06-20)
+
+
+### Bug Fixes
+
+* Apply suggestions from code review ([0a70ca1](https://github.com/GDBuildSystem/GDBuildSystem/commit/0a70ca1f406aeb76a0e394f82db414ddff67dc5e))
+* plugin version now is built in by CI. ([22e5a00](https://github.com/GDBuildSystem/GDBuildSystem/commit/22e5a00d4aa665bc4480246b9ee45ab0f616ee12))
+* **ci:** godot asset library lookup by username. ([0438df6](https://github.com/GDBuildSystem/GDBuildSystem/commit/0438df6418ecc974f3804b38b745db672b516d82))
+
+
+### Features
+
+* Asset Loader. ([b89af06](https://github.com/GDBuildSystem/GDBuildSystem/commit/b89af067d0d6ccf3bbf0d873492eb84f1fc4b2fe))
+* auto-run export build scripts. ([ff6e9cb](https://github.com/GDBuildSystem/GDBuildSystem/commit/ff6e9cbc9ce3084e960701a1c6e13750649cc588))
+* Custom Loading Screens ([c6518ff](https://github.com/GDBuildSystem/GDBuildSystem/commit/c6518ffd5e9d0ea25403b0e56bdd5e5dccd5e50a))
+* Major refactor on the build system. ([d67b776](https://github.com/GDBuildSystem/GDBuildSystem/commit/d67b776e419ac11ea9d5932d52154ea8c3a01e88))
+
 # [1.1.0-dev.1](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.8...v1.1.0-dev.1) (2025-04-28)
 
 
