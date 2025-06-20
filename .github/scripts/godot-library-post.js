@@ -78,16 +78,24 @@ async function main()
     console.log(`Asset "${asset.title}" found!`);
     console.log(`Asset ID: ${asset.asset_id} | Edit ID: ${asset.edit_id} | Version: ${asset.version_string} -> ${version} | Last Modified: ${asset.modify_date} | Status: ${asset.status}`);
 
-    const sendBlob = {
-        "token": token,
-        ...asset,
-        "version_string": version,
-        "download_url": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`
-    }
 
     if (asset.status === "new") // Edit the existing asset.
     {
+        const { data: editedAssetData } = await axios.get(`${API_URL}/asset/edit/${asset.edit_id}`, {
+            token: token,
+        }, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
 
+        const sendBlob = {
+            "token": token,
+            ...editedAssetData,
+            // Overwrite the data inside the edited asset data.
+            "version_string": version,
+            "download_url": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`
+        }
         console.log("Patching existing asset edit...\n", sendBlob);
 
         const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.edit_id}`, sendBlob);
@@ -95,9 +103,19 @@ async function main()
         {
             throw new Error(`Failed to edit asset: ${editResponse.reason}`);
         }
+
+        // Print out the data.
+        console.log("Patch response:", JSON.stringify(editResponse.data, null, 2));
     }
     else // Create a new asset version.
     {
+        const sendBlob = {
+            "token": token,
+            ...asset,
+            "version_string": version,
+            "download_url": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`
+        }
+
         console.log("Creating new asset edit...\n", sendBlob);
 
         const editResponse = await axios.post(`${API_URL}/asset/${asset.asset_id}`, sendBlob);
