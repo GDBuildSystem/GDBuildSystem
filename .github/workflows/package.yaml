@@ -90,7 +90,9 @@ jobs:
           gh release upload ${{ fromJson(steps.get_release.outputs.result).tag_name }} gdbuildsystem-$VERSION.zip --clobber
       
       # Upload to Godot Asset Library;
+      #  Only if the branch is the main branch.
       - name: Upload to Godot Asset Library
+        if: github.ref == 'refs/heads/main'
         env:
           GODOT_LIBRARY_USERNAME: ${{ secrets.GODOT_LIBRARY_USERNAME }}
           GODOT_LIBRARY_PASSWORD: ${{ secrets.GODOT_LIBRARY_PASSWORD }}
