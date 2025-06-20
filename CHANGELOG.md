@@ -1,3 +1,10 @@
+# [1.1.0-dev.11](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.10...v1.1.0-dev.11) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** collecting data. ([c9872ad](https://github.com/GDBuildSystem/GDBuildSystem/commit/c9872ad3086497e0724e8bb88fdd9c95e80cdc6e))
+
 # [1.1.0-dev.10](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.9...v1.1.0-dev.10) (2025-06-20)
 
 
