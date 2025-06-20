@@ -1,3 +1,10 @@
+# [1.1.0-dev.14](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.13...v1.1.0-dev.14) (2025-06-20)
+
+
+### Features
+
+* **ci:** fully fledged godot asset library uploading automation. ([076f388](https://github.com/GDBuildSystem/GDBuildSystem/commit/076f3887baeb89d0cf8208e0e3c61fb777c7b2f0))
+
 # [1.1.0-dev.13](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.12...v1.1.0-dev.13) (2025-06-20)
 
 
