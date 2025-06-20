@@ -41,12 +41,20 @@ jobs:
           npx semantic-release | tee semantic-release.log
           # Extract the version from the log, which is in the format of "1.1.0-dev.14" or "1.1.0". So we would have to handle any characters after an optional hyphen, and one dot then a number.
           VERSION=$(grep -oP 'Published release \K[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z\.-]+)?' semantic-release.log | head -n 1)
+          # Last ditch effort to get the version.
+          if [ -z "$VERSION" ]; then
+            # When the new release version is not found in the log, we can try extracting the found last version from the log.
+            # Starts with 'Found git tag'
+            VERSION=$(grep -oP 'Found git tag v\K[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z\.-]+)?' semantic-release.log | head -n 1)
+          fi
           if [ -z "$VERSION" ]; then
             echo "No version found in semantic-release output"
             exit 1
           fi
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version found: $VERSION"
+          exit 1
+          # echo "VERSION=$VERSION" >> $GITHUB_ENV
+          # echo "version=$VERSION" >> $GITHUB_OUTPUT
 
 
   package:
