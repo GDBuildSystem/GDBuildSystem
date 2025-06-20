@@ -1,4 +1,5 @@
 const axios = require('axios');
+const fs = require('fs');
 
 async function main()
 {
@@ -82,6 +83,24 @@ async function main()
     console.log(`Asset "${asset.title}" found!`);
     console.log(`Asset ID: ${asset.asset_id} | Edit ID: ${asset.edit_id} | Version: ${asset.version_string} -> ${version} | Last Modified: ${asset.modify_date} | Status: ${asset.status}`);
 
+    // Check if asset-description.md or asset-description.txt exists.
+    const descriptionFile = fs.existsSync("asset-description.md") ? "asset-description.md" : "asset-description.txt";
+    var description = null;
+    if (fs.existsSync(descriptionFile))
+    {
+        console.log(`Reading description from ${descriptionFile}...`);
+        description = fs.readFileSync(descriptionFile, 'utf8');
+    }
+    // Check if there is a asset-package.json file.
+    const packageFile = "asset-package.json";
+    var assetPackageData = null;
+    if (fs.existsSync(packageFile))
+    {
+        console.log(`Reading package data from ${packageFile}...`);
+        assetPackageData = JSON.parse(fs.readFileSync(packageFile, 'utf8'));
+    }
+
+
     // If the asset is not approved, we have to edit it differently than when it has been already approved before.
     if (asset.status === "new") // Edit the existing asset.
     {
@@ -99,7 +118,9 @@ async function main()
             // Overwrite the data inside the edited asset data.
             "version_string": version,
             "download_provider": "Custom",
-            "download_commit": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version.replaceAll(".", "_")}.zip`
+            "download_commit": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version.replaceAll(".", "_")}.zip`,
+            "description": description,
+            ...assetPackageData
         }
         console.log("Patching existing asset edit...\n", sendBlob);
 
@@ -118,7 +139,9 @@ async function main()
             "token": token,
             ...asset,
             "version_string": version,
-            "download_url": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`
+            "download_url": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`,
+            "description": description,
+            ...assetPackageData
         }
 
         console.log("Creating new asset edit...\n", sendBlob);
