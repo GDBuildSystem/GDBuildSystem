@@ -1,3 +1,10 @@
+# [1.1.0-dev.3](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2025-06-20)
+
+
+### Bug Fixes
+
+* naming and versioning. ([002db3a](https://github.com/GDBuildSystem/GDBuildSystem/commit/002db3a040eccc3d21f7bbd92a2e9ed0c18fc4b5))
+
 # [1.1.0-dev.2](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2025-06-20)
 
 
