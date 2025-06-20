@@ -52,9 +52,8 @@ jobs:
             exit 1
           fi
           echo "Version found: $VERSION"
-          exit 1
-          # echo "VERSION=$VERSION" >> $GITHUB_ENV
-          # echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
 
   package:
