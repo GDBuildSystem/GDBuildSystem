@@ -78,15 +78,17 @@ async function main()
     console.log(`Asset "${asset.title}" found!`);
     console.log(`Asset ID: ${asset.asset_id} | Edit ID: ${asset.edit_id} | Version: ${asset.version_string} -> ${version} | Last Modified: ${asset.modify_date} | Status: ${asset.status}`);
 
+    const sendBlob = {
+        "token": token,
+        ...asset,
+        "version_string": version,
+        "download_url": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`
+    }
+
     if (asset.status === "new") // Edit the existing asset.
     {
-        const sendBlob = {
-            "token": token,
-            ...asset,
-            "version_string": version,
-        }
 
-        console.log("Patching asset...\n", sendBlob);
+        console.log("Patching existing asset edit...\n", sendBlob);
 
         const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.edit_id}`, sendBlob);
         if (editResponse.status !== 200)
@@ -96,13 +98,7 @@ async function main()
     }
     else // Create a new asset version.
     {
-        const sendBlob = {
-            "token": token,
-            ...asset,
-            "version_string": version,
-        }
-
-        console.log("Patching asset...\n", sendBlob);
+        console.log("Creating new asset edit...\n", sendBlob);
 
         const editResponse = await axios.post(`${API_URL}/asset/${asset.asset_id}`, sendBlob);
         if (editResponse.status !== 200)
