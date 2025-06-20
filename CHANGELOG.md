@@ -1,3 +1,10 @@
+# [1.1.0-dev.6](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.5...v1.1.0-dev.6) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** package uploading automation not able to lookup the asset. ([2d8d28a](https://github.com/GDBuildSystem/GDBuildSystem/commit/2d8d28ae3d2e9e980a097b9fa13827f3ea3987c7))
+
 # [1.1.0-dev.5](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.4...v1.1.0-dev.5) (2025-06-20)
 
 
