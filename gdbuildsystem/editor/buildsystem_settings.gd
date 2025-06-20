@@ -61,9 +61,9 @@ static var bundles_flush_verbosity: bool = DEFAULT_PROJECT_SETTINGS_BUNDLES_FLUS
         ProjectSettings.set_setting(DEFAULT_PROJECT_SETTINGS_BUNDLES_PATH + "flush_verbosity", value)
     get():
         return ProjectSettings.get_setting(DEFAULT_PROJECT_SETTINGS_BUNDLES_PATH + "flush_verbosity", DEFAULT_PROJECT_SETTINGS_BUNDLES_FLUSH_VERBOSITY)
-static var promitted_resources_types: PackedStringArray = DEFAULT_PROJECT_SETTINGS_BUNDLES_PROMITTED_RESOURCE_TYPES:
+static var permitted_resources_types: PackedStringArray = DEFAULT_PROJECT_SETTINGS_BUNDLES_PROMITTED_RESOURCE_TYPES:
     set(value):
-        promitted_resources_types = value
+        permitted_resources_types = value
         ProjectSettings.set_setting(DEFAULT_PROJECT_SETTINGS_BUNDLES_PATH + "promitted_resource_types", value)
     get():
         return ProjectSettings.get_setting(DEFAULT_PROJECT_SETTINGS_BUNDLES_PATH + "promitted_resource_types", DEFAULT_PROJECT_SETTINGS_BUNDLES_PROMITTED_RESOURCE_TYPES)
