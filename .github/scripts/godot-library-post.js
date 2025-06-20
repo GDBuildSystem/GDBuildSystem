@@ -94,7 +94,7 @@ async function main()
             ...editedAssetData,
             // Overwrite the data inside the edited asset data.
             "version_string": version,
-            "download_url": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`
+            "download_commit": `https://github.com/GDBuildSystem/GDBuildSystem/releases/download/v${version}/gdbuildsystem-${version}.zip`
         }
         console.log("Patching existing asset edit...\n", sendBlob);
 
