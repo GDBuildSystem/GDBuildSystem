@@ -2,6 +2,7 @@ const axios = require('axios');
 
 async function main()
 {
+    // Grab the environment variables.
     const API_URL = "https://godotengine.org/asset-library/api";
     const username = process.env.GODOT_LIBRARY_USERNAME;
     const password = process.env.GODOT_LIBRARY_PASSWORD;
@@ -9,11 +10,11 @@ async function main()
     const assetId = process.env.GODOT_LIBRARY_ASSET_ID;
     const version = process.env.VERSION
 
+    // Validate the environment variables.
     if (!version)
     {
         throw new Error("Please set the VERSION environment variable.");
     }
-
     if (!username || !password)
     {
         throw new Error("Please set the GODOT_LIBRARY_USERNAME and GODOT_LIBRARY_PASSWORD environment variables.");
@@ -23,6 +24,7 @@ async function main()
         throw new Error("Please set the GODOT_LIBRARY_ASSET_NAME or GODOT_LIBRARY_ASSET_ID environment variable.");
     }
 
+    // Login into the Godot Asset Library.
     console.log("Logging in to Godot Asset Library...");
     const loginResponse = await axios.post(`${API_URL}/login`, {
         username: username,
@@ -35,9 +37,9 @@ async function main()
     }
     console.log("Login successful! Token received.");
 
+    // Fetch the first reference to the asset either by name or ID, in each page.
     let page = 1;
     let asset = null;
-
     while (asset == null && page <= 100)
     {
         console.log(`Fetching page ${page}...`);
@@ -70,15 +72,17 @@ async function main()
         page++;
     }
 
+    // Verify if the asset was found.
     if (asset == null)
     {
         throw new Error(`Asset "${assetName}" not found in the Godot Asset Library.`);
     }
 
+    // Log the asset details.
     console.log(`Asset "${asset.title}" found!`);
     console.log(`Asset ID: ${asset.asset_id} | Edit ID: ${asset.edit_id} | Version: ${asset.version_string} -> ${version} | Last Modified: ${asset.modify_date} | Status: ${asset.status}`);
 
-
+    // If the asset is not approved, we have to edit it differently than when it has been already approved before.
     if (asset.status === "new") // Edit the existing asset.
     {
         const { data: editedAssetData } = await axios.get(`${API_URL}/asset/edit/${asset.edit_id}`, {
@@ -129,6 +133,7 @@ async function main()
     console.log("Asset modified successfully!");
 }
 
+// Run the main function and handle errors.
 main().then(() =>
 {
     console.log("Done!");
