@@ -1,3 +1,10 @@
+# [1.1.0-dev.15](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.14...v1.1.0-dev.15) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** version passing. ([093a44d](https://github.com/GDBuildSystem/GDBuildSystem/commit/093a44ded3fb43d661ebbd34e7d2b64dd2b7ed5a))
+
 # [1.1.0-dev.14](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.13...v1.1.0-dev.14) (2025-06-20)
 
 
