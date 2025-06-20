@@ -41,7 +41,7 @@ async function main()
     while (asset == null && page <= 100)
     {
         console.log(`Fetching page ${page}...`);
-        const response = await axios.post(`${API_URL}/user/feed`, {
+        const { data } = await axios.post(`${API_URL}/user/feed`, {
             page: page,
             max_results: 100,
             token: token,
@@ -50,7 +50,7 @@ async function main()
                 'Authorization': `Bearer ${token}`
             }
         });
-        const assets = response.events || response.results || [];
+        const assets = data.events || data.results || [];
         console.log(`Received Page ${page}, data: ${JSON.stringify(assets, null, 2)}`);
         if (!Array.isArray(assets) || assets.length === 0)
         {
