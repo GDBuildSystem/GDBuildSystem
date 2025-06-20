@@ -50,7 +50,7 @@ func next_file(path: String, type: String) -> FileResult:
     var bundle_file_path: String = path.replace(settings.resource_directory + "/", "")
     var bundle_name: String = bundle_file_path.split("/")[0]
     var promitted_file_types: PackedStringArray = []
-    for setting_file_type: String in settings.promitted_resources_types: # Cleanup the file types to be all lowercase, otherwise we will have false-positives.
+    for setting_file_type: String in settings.permitted_resources_types: # Cleanup the file types to be all lowercase, otherwise we will have false-positives.
         if setting_file_type == "":
             continue
         promitted_file_types.append(setting_file_type.to_lower())

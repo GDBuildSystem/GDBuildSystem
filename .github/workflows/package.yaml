@@ -58,6 +58,7 @@ jobs:
             console.log('Latest release:', releases.data[0]);
             return JSON.stringify(releases.data[0]); // Latest release
           result-encoding: string
+
       - name: Create addons folder and move GDBuildSystem
         run: |
             export VERSION=$(echo "${{ fromJson(steps.get_release.outputs.result).tag_name }}" | sed 's/v//' | tr '.' '_' )
@@ -65,7 +66,7 @@ jobs:
             echo "VERSION: $VERSION"
             # Update the version in plugin.cfg
             # Format version="myversion"
-            sed -i "s/version=\".*\"/version=\"$VERSION\"/" addons/gdbuildsystem/plugin.cfg 
+            sed -i "s/version=\".*\"/version=\"$VERSION\"/" gdbuildsystem/plugin.cfg 
 
             # Create addons folder and move GDBuildSystem
             mkdir addons
