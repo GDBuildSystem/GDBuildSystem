@@ -43,7 +43,8 @@ async function main()
         console.log(`Fetching page ${page}...`);
         const response = await axios.post(`${API_URL}/user/feed`, {
             page: page,
-            max_results: 100
+            max_results: 100,
+            token: token,
         }, {
             headers: {
                 'Authorization': `Bearer ${token}`
