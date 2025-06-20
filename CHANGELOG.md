@@ -1,3 +1,10 @@
+# [1.1.0-dev.13](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.12...v1.1.0-dev.13) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** download url. ([be280e9](https://github.com/GDBuildSystem/GDBuildSystem/commit/be280e9cc29f9ba9748534f5e37540739513d173))
+
 # [1.1.0-dev.12](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.11...v1.1.0-dev.12) (2025-06-20)
 
 
