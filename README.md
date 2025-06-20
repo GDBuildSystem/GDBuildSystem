@@ -16,11 +16,9 @@ Simplifies the process of bundling assets without the need for complex scripts o
 
 This feature allows you to load resources in advance, that may cause initial load lag spikes while in-game play. Example, particles, large textures, shaders, etc.
 #### **GDScript Export Execution**
-> [!NOTE]
-> Work in progress, not fully implemented yet.
-
 This feature allows you to run GDScript code during the export process. This is useful for tasks such as modifying files, creating directories, or performing other actions that need to be done before the export is complete.
-
+#### **Built-in Variables**
+This feature provides a set of built-in variables that can be used in your GDScript code during the export process. These variables can be used to access information about the project at runtime. Example, displaying Git information, or the bundles information.
 
 ### Installation
 <details>
@@ -86,7 +84,7 @@ This feature allows you to run GDScript code during the export process. This is 
 <summary>Click to expand</summary>
 
 - [ ] Implement predictive resource loading.
-- [ ] Implement GDScript export execution.
+- [x] Implement GDScript export execution.
 - [ ] Implement CLI Commands to only export the bundles. Ephmeral Bundle Exporting.
 
 </details>

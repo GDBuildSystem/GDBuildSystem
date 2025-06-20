@@ -1,18 +1,25 @@
 @tool
 extends EditorPlugin
+class_name GDBuildSystemPlugin
 
-var export_bundler_plugin: EditorBundlerExportPlugin
-var export_preload_required_scene_plugin: EditorExportPreloadRequiredScenes
+static var settings: BuildSystemSettings:
+    get():
+        if settings == null:
+            settings = BuildSystemSettings.new()
+        return settings
+
+var main_export_plugin: GDBuildSystemEditorExportPlugin
 
 func _enter_tree() -> void:
     # Initialize the settings.
     BuildSystemSettings.new()
-    # Initialize the plugins.
-    export_bundler_plugin = EditorBundlerExportPlugin.new()
-    export_preload_required_scene_plugin = EditorExportPreloadRequiredScenes.new()
-    add_export_plugin(export_bundler_plugin)
-    add_export_plugin(export_preload_required_scene_plugin)
+    # Initialize the plugin.
+    main_export_plugin = GDBuildSystemEditorExportPlugin.new()
+    main_export_plugin.add_step(GDBuildExportStep_BuildScript.new())
+    main_export_plugin.add_step(GDBuildExportStep_Preloads.new())
+    main_export_plugin.add_step(GDBuildExportStep_Bundles.new())
+    # Add the main export plugin to the editor.
+    add_export_plugin(main_export_plugin)
 
 func _exit_tree() -> void:
-    remove_export_plugin(export_bundler_plugin)
-    remove_export_plugin(export_preload_required_scene_plugin)
+    remove_export_plugin(main_export_plugin)
