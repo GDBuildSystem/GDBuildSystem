@@ -1,3 +1,10 @@
+# [1.1.0-dev.12](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.11...v1.1.0-dev.12) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** defer creation or edit dependent on state. ([4a147bc](https://github.com/GDBuildSystem/GDBuildSystem/commit/4a147bc99f27f24809264d79c77385a3423c45e1))
+
 # [1.1.0-dev.11](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.10...v1.1.0-dev.11) (2025-06-20)
 
 
