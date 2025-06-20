@@ -93,7 +93,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release upload ${{ needs.semantic-versioning.outputs.version }} gdbuildsystem-$VERSION.zip --clobber
+          gh release upload v${{ needs.semantic-versioning.outputs.version }} gdbuildsystem-$VERSION.zip --clobber
       
       # Upload to Godot Asset Library;
       - name: Upload to Godot Asset Library
