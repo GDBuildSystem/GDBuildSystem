@@ -51,7 +51,8 @@ async function main()
             }
         });
         const assets = response.data.result;
-        if (assets.length === 0)
+        console.log(`Received Page ${page}, data: ${JSON.stringify(assets, null, 2)}`);
+        if (!Array.isArray(assets) || assets.length === 0)
         {
             console.log("No more assets found.");
             break;
