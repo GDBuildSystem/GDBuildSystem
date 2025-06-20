@@ -1,3 +1,10 @@
+# [1.1.0-dev.8](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.7...v1.1.0-dev.8) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:** post request to retrieve data. ([ce16555](https://github.com/GDBuildSystem/GDBuildSystem/commit/ce165559f5f3f1b568350ac5d3a5c6b94490a371))
+
 # [1.1.0-dev.7](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.6...v1.1.0-dev.7) (2025-06-20)
 
 
