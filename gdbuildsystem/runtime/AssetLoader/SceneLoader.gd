@@ -16,12 +16,11 @@ func _ready() -> void:
     if packed_scene == null:
         print("SceneLoader: No packed scene assigned.")
         return
-    GlobalMessageBus.on_load_scene.connect(_on_change_scene)
     if autoload:
         await change_scenes(packed_scene)
 
 func _exit_tree() -> void:
-    GlobalMessageBus.on_load_scene.disconnect(_on_change_scene)
+    pass
 
 func _on_change_scene(scene_path: String) -> void:
     on_scene_change.emit(scene_path)
@@ -44,12 +43,12 @@ func change_scenes(scene_path: String) -> void:
 
     # Now lets instantiate the packed scene
     if _packed_scene == null:
-        Log.error("Failed to load the packed scene correctly...")
+        printerr("Failed to load the packed scene correctly...")
         return
     if override_scene and world == null:
         var err: int = get_tree().change_scene_to_packed(_packed_scene)
         if err != OK:
-            Log.error("Failed to change scene to packed scene: %s - %s" % [_packed_scene.resource_name, error_string(err)])
+            printerr("Failed to change scene to packed scene: %s - %s" % [_packed_scene.resource_name, error_string(err)])
             return
     else:
         if world == null:
@@ -57,14 +56,10 @@ func change_scenes(scene_path: String) -> void:
         
         var instance: Node = _packed_scene.instantiate()
         if instance == null:
-            Log.error("Failed to instantiate the packed scene.")
+            printerr("Failed to instantiate the packed scene.")
             return
         
         # Add the instance to the current scene
         world.add_child(instance)
         _packed_scene = null
         _scene_node = instance
-
-    # Now, we are ready for the server to sync us.
-    if Network.is_ready():
-        GlobalMessageBus.on_ready_for_server_sync.emit()
