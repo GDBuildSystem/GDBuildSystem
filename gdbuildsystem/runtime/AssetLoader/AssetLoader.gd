@@ -60,7 +60,19 @@ signal on_started()
 #@export var delete_after_completion: float = 0.5 # in seconds
 @export var debug: bool = false
 
-const AssetLoaderScene: PackedScene = preload("res://addons/gdbuildsystem/runtime/AssetLoader/LoadingScreen.tscn")
+var runtime_settings: BuildSystemRuntimeSettings:
+    get():
+        if runtime_settings == null:
+            runtime_settings = BuildSystemRuntimeSettings.new()
+        return runtime_settings
+
+var AssetLoaderScene: PackedScene = null:
+    get():
+        if AssetLoaderScene == null:
+            AssetLoaderScene = runtime_settings.loading_screen_scene
+            if AssetLoaderScene == null:
+                push_error("AssetLoaderScene is not set! Please ensure the loading screen scene is set in the project settings.")
+        return AssetLoaderScene
 static var asset_loader_visual: CanvasLayer = null
 
 var _max_items: PackedStringArray = []
