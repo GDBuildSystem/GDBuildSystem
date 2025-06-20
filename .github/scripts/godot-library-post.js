@@ -6,14 +6,21 @@ async function main()
     const username = process.env.GODOT_LIBRARY_USERNAME;
     const password = process.env.GODOT_LIBRARY_PASSWORD;
     const assetName = process.env.GODOT_LIBRARY_ASSET_NAME;
+    const assetId = process.env.GODOT_LIBRARY_ASSET_ID;
+    const version = process.env.VERSION
+
+    if (!version)
+    {
+        throw new Error("Please set the VERSION environment variable.");
+    }
 
     if (!username || !password)
     {
         throw new Error("Please set the GODOT_LIBRARY_USERNAME and GODOT_LIBRARY_PASSWORD environment variables.");
     }
-    if (!assetName)
+    if (!assetName && !assetId)
     {
-        throw new Error("Please set the GODOT_LIBRARY_ASSET_NAME environment variable.");
+        throw new Error("Please set the GODOT_LIBRARY_ASSET_NAME or GODOT_LIBRARY_ASSET_ID environment variable.");
     }
 
     console.log("Logging in to Godot Asset Library...");
@@ -52,7 +59,7 @@ async function main()
 
         for (const a of assets)
         {
-            if (a.name === assetName)
+            if ((assetName && a.title === assetName) || (assetId && a.asset_id === assetId))
             {
                 asset = a;
                 break;
@@ -66,14 +73,14 @@ async function main()
     {
         throw new Error(`Asset "${assetName}" not found in the Godot Asset Library.`);
     }
-    console.log(`Asset "${assetName}" found!`);
+    console.log(`Asset "${asset.title}" found!`);
 
-    console.log(`Asset ID: ${asset.id}`);
+    console.log(`Asset ID: ${asset.asset_id}`);
 
     const sendBlob = {
         "token": token,
         ...asset,
-        "version_string": process.env.VERSION,
+        "version_string": version,
     }
     console.log("Patching asset...\n", sendBlob);
     const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.asset_id}`, sendBlob);
