@@ -1,3 +1,10 @@
+# [1.1.0-dev.7](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.6...v1.1.0-dev.7) (2025-06-20)
+
+
+### Bug Fixes
+
+* **ci:**  grabbing and updating data on the asset library. ([41e467b](https://github.com/GDBuildSystem/GDBuildSystem/commit/41e467bc0eca278da319743a2e4eb298c6f6626d))
+
 # [1.1.0-dev.6](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.5...v1.1.0-dev.6) (2025-06-20)
 
 
