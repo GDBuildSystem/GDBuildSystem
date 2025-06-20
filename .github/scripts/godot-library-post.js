@@ -9,13 +9,11 @@ async function main()
 
     if (!username || !password)
     {
-        console.error("Please set the GODOT_LIBRARY_USERNAME and GODOT_LIBRARY_PASSWORD environment variables.");
-        return;
+        throw new Error("Please set the GODOT_LIBRARY_USERNAME and GODOT_LIBRARY_PASSWORD environment variables.");
     }
     if (!assetName)
     {
-        console.error("Please set the GODOT_LIBRARY_ASSET_NAME environment variable.");
-        return;
+        throw new Error("Please set the GODOT_LIBRARY_ASSET_NAME environment variable.");
     }
 
     console.log("Logging in to Godot Asset Library...");
@@ -66,8 +64,7 @@ async function main()
 
     if (asset == null)
     {
-        console.log(`Asset "${assetName}" not found in the Godot Asset Library.`);
-        return;
+        throw new Error(`Asset "${assetName}" not found in the Godot Asset Library.`);
     }
     console.log(`Asset "${assetName}" found!`);
 
