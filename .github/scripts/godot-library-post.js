@@ -78,19 +78,39 @@ async function main()
     console.log(`Asset "${asset.title}" found!`);
     console.log(`Asset ID: ${asset.asset_id} | Edit ID: ${asset.edit_id} | Version: ${asset.version_string} -> ${version} | Last Modified: ${asset.modify_date} | Status: ${asset.status}`);
 
-    const sendBlob = {
-        "token": token,
-        ...asset,
-        "version_string": version,
-    }
-
-    console.log("Patching asset...\n", sendBlob);
-
-    const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.edit_id}`, sendBlob);
-    if (editResponse.status !== 200)
+    if (asset.status === "new") // Edit the existing asset.
     {
-        throw new Error(`Failed to edit asset: ${editResponse.reason}`);
+        const sendBlob = {
+            "token": token,
+            ...asset,
+            "version_string": version,
+        }
+
+        console.log("Patching asset...\n", sendBlob);
+
+        const editResponse = await axios.post(`${API_URL}/asset/${asset.asset_id}`, sendBlob);
+        if (editResponse.status !== 200)
+        {
+            throw new Error(`Failed to edit asset: ${editResponse.reason}`);
+        }
     }
+    else // Create a new asset version.
+    {
+        const sendBlob = {
+            "token": token,
+            ...asset,
+            "version_string": version,
+        }
+
+        console.log("Patching asset...\n", sendBlob);
+
+        const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.edit_id}`, sendBlob);
+        if (editResponse.status !== 200)
+        {
+            throw new Error(`Failed to edit asset: ${editResponse.reason}`);
+        }
+    }
+
     console.log("Asset modified successfully!");
 }
 
