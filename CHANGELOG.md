@@ -1,3 +1,40 @@
+# [1.1.0](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.0.8...v1.1.0) (2025-06-20)
+
+
+### Bug Fixes
+
+* Apply suggestions from code review ([e4a48d5](https://github.com/GDBuildSystem/GDBuildSystem/commit/e4a48d58449d0b588ac4c68104393612fdc416d8))
+* naming and versioning. ([cac8cbb](https://github.com/GDBuildSystem/GDBuildSystem/commit/cac8cbbda9975fad8804b66e22bcf14493dbc434))
+* plugin version now is built in by CI. ([163b465](https://github.com/GDBuildSystem/GDBuildSystem/commit/163b465caa5a3f518f035601acd1cf371a9419d1))
+* **ci:**  grabbing and updating data on the asset library. ([3c83d75](https://github.com/GDBuildSystem/GDBuildSystem/commit/3c83d75e09caa161260853db4b3a14b0e1070259))
+* **ci:** authenticate the request. ([9f8cf80](https://github.com/GDBuildSystem/GDBuildSystem/commit/9f8cf8069344b4de06a16a77bf132016c2f44df6))
+* **ci:** branches. ([12aacf1](https://github.com/GDBuildSystem/GDBuildSystem/commit/12aacf1e26b5b305a27f3d6742216e0b69e34eb0))
+* **ci:** collecting data. ([26f898d](https://github.com/GDBuildSystem/GDBuildSystem/commit/26f898df803cd0a5db1483f251578595b69c8019))
+* **ci:** collecting the data. ([93d9489](https://github.com/GDBuildSystem/GDBuildSystem/commit/93d948926e4c22108398b8e361033e38f7e418b6))
+* **ci:** defer creation or edit dependent on state. ([4cbbac8](https://github.com/GDBuildSystem/GDBuildSystem/commit/4cbbac87ee36ab13089c52f672e857f4ec3ae0fd))
+* **ci:** download url. ([2a46248](https://github.com/GDBuildSystem/GDBuildSystem/commit/2a46248b8b4d6ef7e7456ccbeb9f83d4c697e9af))
+* **ci:** godot asset library lookup by username. ([63c0ebb](https://github.com/GDBuildSystem/GDBuildSystem/commit/63c0ebbbcc61af8189712a98577d86ea3bf97ab9))
+* **ci:** missing environment variable from the github variables. ([aa83e3f](https://github.com/GDBuildSystem/GDBuildSystem/commit/aa83e3f1dfdddcadd428448ee48a4d6d58609031))
+* **ci:** not properly exiting when failure. ([ad183d5](https://github.com/GDBuildSystem/GDBuildSystem/commit/ad183d5a6102c55cbd33a4be4828a71379f239f5))
+* **ci:** only run upload package on main. ([543b123](https://github.com/GDBuildSystem/GDBuildSystem/commit/543b123191f4f399791bc8c041e391222835a43e))
+* **ci:** package uploading automation not able to lookup the asset. ([d46c20d](https://github.com/GDBuildSystem/GDBuildSystem/commit/d46c20d550f06bb6445498ebbf9afdf52577518c))
+* **ci:** post request to retrieve data. ([ebc7063](https://github.com/GDBuildSystem/GDBuildSystem/commit/ebc7063c5fcfcdd7e3dd1a3bd9fe6f650a9640e3))
+* **ci:** version passing. ([fa6e6a8](https://github.com/GDBuildSystem/GDBuildSystem/commit/fa6e6a8bc7570e47609ec1a47863a47f138cf93f))
+
+
+### Features
+
+* Asset Loader. ([c35e091](https://github.com/GDBuildSystem/GDBuildSystem/commit/c35e09104437978846854ae0f4c743fd05e8f187))
+* auto-run export build scripts. ([3e6ea89](https://github.com/GDBuildSystem/GDBuildSystem/commit/3e6ea891599f785d028be22018d0a26597c87724))
+* Custom Loading Screens ([de51832](https://github.com/GDBuildSystem/GDBuildSystem/commit/de518323b422e2c27da8705a4a3461c9202bdbc8))
+* **ci:** fully fledged godot asset library uploading automation. ([aad6eec](https://github.com/GDBuildSystem/GDBuildSystem/commit/aad6eecd94ebf95e268844f9311d9d3535befcc6))
+* **ci:** godot library asset auto upload. ([eebe8ae](https://github.com/GDBuildSystem/GDBuildSystem/commit/eebe8ae8ab3cadc570e3d911cdf4cb8b26c6ea38))
+
+
+### Reverts
+
+* Revert "fix(ci): only run upload package on main." ([179373a](https://github.com/GDBuildSystem/GDBuildSystem/commit/179373afd752b6705750470ab498294221abae42))
+
 # [1.1.0-dev.15](https://github.com/GDBuildSystem/GDBuildSystem/compare/v1.1.0-dev.14...v1.1.0-dev.15) (2025-06-20)
 
 
