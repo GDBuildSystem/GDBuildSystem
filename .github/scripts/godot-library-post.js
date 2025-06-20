@@ -88,7 +88,7 @@ async function main()
 
         console.log("Patching asset...\n", sendBlob);
 
-        const editResponse = await axios.post(`${API_URL}/asset/${asset.asset_id}`, sendBlob);
+        const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.edit_id}`, sendBlob);
         if (editResponse.status !== 200)
         {
             throw new Error(`Failed to edit asset: ${editResponse.reason}`);
@@ -104,7 +104,7 @@ async function main()
 
         console.log("Patching asset...\n", sendBlob);
 
-        const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.edit_id}`, sendBlob);
+        const editResponse = await axios.post(`${API_URL}/asset/${asset.asset_id}`, sendBlob);
         if (editResponse.status !== 200)
         {
             throw new Error(`Failed to edit asset: ${editResponse.reason}`);
