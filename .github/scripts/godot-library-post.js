@@ -41,7 +41,7 @@ async function main()
     while (asset == null && page <= 100)
     {
         console.log(`Fetching page ${page}...`);
-        const response = await axios.get(`${API_URL}/asset?user=${username}`, {
+        const response = await axios.post(`${API_URL}/user/feed`, {
             params: {
                 page: page,
                 max_results: 100
@@ -73,17 +73,19 @@ async function main()
     {
         throw new Error(`Asset "${assetName}" not found in the Godot Asset Library.`);
     }
-    console.log(`Asset "${asset.title}" found!`);
 
-    console.log(`Asset ID: ${asset.asset_id}`);
+    console.log(`Asset "${asset.title}" found!`);
+    console.log(`Asset ID: ${asset.asset_id} | Edit ID: ${asset.edit_id} | Version: ${asset.version_string} -> ${version} | Last Modified: ${asset.modify_date} | Status: ${asset.status}`);
 
     const sendBlob = {
         "token": token,
         ...asset,
         "version_string": version,
     }
+
     console.log("Patching asset...\n", sendBlob);
-    const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.asset_id}`, sendBlob);
+
+    const editResponse = await axios.post(`${API_URL}/asset/edit/${asset.edit_id}`, sendBlob);
     if (editResponse.status !== 200)
     {
         throw new Error(`Failed to edit asset: ${editResponse.reason}`);
